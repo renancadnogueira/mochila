@@ -1,13 +1,14 @@
 // Buscando o form e a lista no DOM
 const form = document.getElementById("novoItem");
 const lista = document.getElementById("lista");
-const itens = []
+const itens = [] //  Declare um array de nome itens
 
 // Criando listener do submit do form
 form.addEventListener("submit", (evento) => {
     // Previnindo o refresh da página
     evento.preventDefault();
 
+    // Cria variáveis para acessar os valores enviados
     const nome = evento.target.elements['nome'];
     const quantidade = evento.target.elements['quantidade'];
 
@@ -37,13 +38,15 @@ function criaElemento(nome, quantidade) {
     // Inserindo o elemento "li" no elemento "lista"
     lista.appendChild(novoItem);
 
+    // Transforme a variável já criada, itemAtual, em um objeto object que receba os valores de nome e quantidade,
     const itemAtual = {
         "nome": nome,
         "quantidade": quantidade
     }
 
+    // Insira a variável itemAtual nesse array itens, utilizando o método push
     itens.push(itemAtual);
     
-    // Armazena o nome e a quantidade dos valores passados para a lista
+    // E transforme os valores estes valores em string. Armazena o nome e a quantidade dos valores passados para a lista
     localStorage.setItem("item", JSON.stringify(itemAtual));
 }
