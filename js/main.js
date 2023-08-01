@@ -77,6 +77,7 @@ function atualizaElemento(item) {
     document.querySelector("[data-id='"+item.id+"']").innerHTML = item.quantidade
 }
 
+// Função para criar botão com evento de click nos itens, e retornar os itens clicados
 function botaoDeleta(id) {
     const elementoBotao = document.createElement("button");
     elementoBotao.innerText = "X"
@@ -88,6 +89,7 @@ function botaoDeleta(id) {
     return elementoBotao
 }
 
+// Função para deletar os itens enviados da função botaoDeleta no array de itens e no navegador
 function deletaElemento(tag, id) {
     tag.remove()
 
